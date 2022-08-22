@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="theRectangle" width="500px" height="500px" style="border:1px solid crimson;"> </canvas>
+</body>
+</html>
+
+<script>
+  let Rectangle = function (width, height) {
+      this.width = width;
+      this.getWidth = function () { //get để gán giá trị
+          return width;
+      }
+      this.height = height;
+      this.getHeight = function () {
+          return height;
+      }
+      this.getArea = function () {
+          return width * height;
+      }
+      this.getPeri = function () {
+          return (width + height) * 2;
+      }
+  }
+
+      let rectangle = new Rectangle(Math.random()*500, Math.random()*500);
+      let width = rectangle.getWidth();
+      let height = rectangle.getHeight();
+      let area = rectangle.getArea();
+      let perimeters = rectangle.getPeri();
+
+      document.write("<br>")
+      document.write("Width: " + width + "<br>");
+      document.write("Height: " + height + "<br>");
+      document.write("Area: " + area + "<br>");
+      document.write("Perimeters: " + perimeters);
+
+  let a = document.getElementById("theRectangle").getContext('2d');
+  // a.fillStyle = '#fa4b2a';
+  // a.fillRect(50, 100,rectangle.width, rectangle.height); //vẽ 1 hcn đã đc tô màu đen mặc định
+
+  a.lineWidth = "5";
+  a.lineJoin = "bevel";
+  a.strokeStyle = "blue";
+  a.strokeRect(10, 20, rectangle.width, rectangle.height); //vẽ 1 hcn chưa đc tô màu, viền đen mặc định
+</script>
